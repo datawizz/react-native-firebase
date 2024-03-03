@@ -1,0 +1,32 @@
+{
+    "name": "ReactNativeFirebase",
+    "remoteUser": "root",
+	// initializeCommand runs on the host before building the container.
+	// "initializeCommand": "bash bin/commands/docker_preinit.sh",
+    "dockerComposeFile": "../docker-compose.yaml",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspace",
+    "overrideCommand": false,
+    "remoteEnv": {
+        // the original host directory of the project (used for permission modifications)
+        "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+    },
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [
+        8082
+    ],
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "remote.portsAttributes": {
+                    "8082": {
+                    "label": "ReactNativeWeb",
+                    "onAutoForward": "notify"
+                    }
+                }
+            },
+            "extensions": [
+            ]
+        }
+    }
+}

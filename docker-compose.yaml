@@ -1,0 +1,10 @@
+services:
+  devcontainer:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file:
+      - .env.example
+    volumes:
+      # Mount the project directory on the local file system
+      - ./:/workspace
